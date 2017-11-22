@@ -11,19 +11,17 @@ public class OperatingConsoleModule {
     private static List<String> pidList;
 
 
-
-
-public static List consoleRead(){
+    public static List consoleRead() {
 
         Scanner scanner = new Scanner(System.in);
 
-    return pidToDestroy(scanner.nextLine());
+        return pidToDestroy(scanner.nextLine());
 
 
-}
+    }
 
 
-    private static List pidToDestroy(String listFromConsole){
+    private static List pidToDestroy(String listFromConsole) {
 
         return pidList = Arrays.stream(listFromConsole.split(",")).collect(Collectors.toList());
 
