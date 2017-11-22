@@ -9,27 +9,27 @@ public class ProcessReader {
         ProcessHandle.allProcesses()
                 .filter(ph -> ph.info().command().isPresent())
                 .limit(10)
-                .sorted(Comparator.comparing(ph -> ph
-                        .info()
-                        .totalCpuDuration()
-                        .get()
-                        .toMillis())
-
-
-
+                .sorted(Comparator.comparing(ProcessReader::cpuDuration)
+                        .reversed()
                 )
                 .forEach(ph -> {
                             System.out.printf("%d ", ph.pid());
                             System.out.printf("%s ", ph.info().command().orElse(""));
-
                             System.out.printf("[%sms]",
                                     ph.info().totalCpuDuration()
-                                            .orElse(Duration.ofMillis(0)).toMillis());
+                                            .get().toMillis());
                             System.out.println();
                         }
                 );
     }
 
+    static Long cpuDuration(ProcessHandle ph) {
+        return ph
+                .info()
+                .totalCpuDuration()
+                .get()
+                .toMillis();
+    }
 
 
 }
