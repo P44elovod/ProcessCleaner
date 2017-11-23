@@ -11,12 +11,7 @@ public class ProcessPanelModule {
                 .sorted(Comparator.comparing(ProcessPanelModule::cpuDuration)
                         .reversed()
                 )
-                .forEach(ph -> {
-                            System.out.printf("%d ", ph.pid());
-                            System.out.printf("%s ", dumpCommand(ph));
-                            System.out.printf("[%sms]", cpuDuration(ph));
-                            System.out.println();
-                        }
+                .forEach(ph -> System.out.printf("%d %s [%sms]%n", ph.pid(), dumpCommand(ph), cpuDuration(ph))
                 );
     }
 

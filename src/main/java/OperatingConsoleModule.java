@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 @Getter
 public class OperatingConsoleModule {
 
-    private static List<String> pidList;
+
 
 
     public static List consoleRead() {
@@ -23,7 +23,8 @@ public class OperatingConsoleModule {
 
     private static List pidToDestroy(String listFromConsole) {
 
-        return pidList = Arrays.stream(listFromConsole.split(",")).collect(Collectors.toList());
+        return Arrays.stream(listFromConsole.split(",")).collect(Collectors.toList());
+
 
     }
 
