@@ -3,10 +3,10 @@ package Command;
 import java.util.Comparator;
 
 
-public class ProcessPanelCommand {
+public class ProcessPanelCommand implements Command {
 
 
-    public static void main(String[] args) {
+    public void execute() {
         ProcessHandle.allProcesses()
                 .filter(ph -> ph.info().command().isPresent())
                 .limit(10)
