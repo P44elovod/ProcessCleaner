@@ -1,6 +1,8 @@
+package Command;
+
 import java.util.List;
 
-public class ProcessDestroyModule {
+public class ProcessDestroyCommand {
 
 
     public static void processDestroy(List<String> pidList) {
