@@ -4,7 +4,7 @@ import Command.Receiver;
 
 public class Main {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Receiver receiver = new Receiver();
         receiver.addCommand(new ProcessPanelCommand());
         receiver.addCommand(new ProcessDestroyCommand());
