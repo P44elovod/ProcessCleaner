@@ -23,10 +23,10 @@ public class ProcessPanelCommand implements Command {
     public void execute() {
         ProcessHandle.allProcesses()
                 .filter(ph -> ph.info().command().isPresent())
-                .limit(10)
                 .sorted(Comparator.comparing(ProcessPanelCommand::cpuDuration)
                         .reversed()
                 )
+                .limit(10)
                 .forEach(ph -> System.out.printf("%d %s [%sms]%n", ph.pid(), dumpCommand(ph), cpuDuration(ph))
                 );
     }
