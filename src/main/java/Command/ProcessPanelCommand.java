@@ -6,7 +6,7 @@ import java.util.Comparator;
 public class ProcessPanelCommand implements Command {
 
 
-    private static Long cpuDuration(ProcessHandle ph) {
+    private  Long cpuDuration(ProcessHandle ph) {
         return ph
                 .info()
                 .totalCpuDuration()
@@ -14,7 +14,7 @@ public class ProcessPanelCommand implements Command {
                 .toMillis();
     }
 
-    private static String dumpCommand(ProcessHandle ph) {
+    private String dumpCommand(ProcessHandle ph) {
         return ph.info()
                 .command()
                 .orElse("");
@@ -23,7 +23,7 @@ public class ProcessPanelCommand implements Command {
     public void execute() {
         ProcessHandle.allProcesses()
                 .filter(ph -> ph.info().command().isPresent())
-                .sorted(Comparator.comparing(ProcessPanelCommand::cpuDuration)
+                .sorted(Comparator.comparing(this::cpuDuration)
                         .reversed()
                 )
                 .limit(10)

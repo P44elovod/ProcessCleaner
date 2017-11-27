@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 
-public class OperatingConsoleCommand {
+public class OperatingConsole {
 
 
     public static List consoleRead() {
