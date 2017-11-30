@@ -1,4 +1,4 @@
-package Command;
+package command;
 
 import java.util.Comparator;
 
@@ -6,7 +6,7 @@ import java.util.Comparator;
 public class ProcessPanelCommand implements Command {
 
 
-    private  Long cpuDuration(ProcessHandle ph) {
+    private Long cpuDuration(ProcessHandle ph) {
         return ph
                 .info()
                 .totalCpuDuration()
